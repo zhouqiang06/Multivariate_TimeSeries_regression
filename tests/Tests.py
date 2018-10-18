@@ -17,7 +17,7 @@ else:
     home_path = r'/home/qzhou/FreqDe' #server lcsrlnst01
 
 def temperature_pieceLagmodel_sim():
-    """This function uses all independent variables to investigate its capability 
+    """This function uses all temperature data to investigate the model capability 
     in rejecting redundant variables when all required variables are provided.
     """
     
