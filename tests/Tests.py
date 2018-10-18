@@ -17,6 +17,10 @@ else:
     home_path = r'/home/qzhou/FreqDe' #server lcsrlnst01
 
 def temperature_pieceLagmodel_sim():
+    """This function uses all independent variables to investigate its capability 
+    in rejecting redundant variables when all required variables are provided.
+    """
+    
     noise_lev = 0.05
 
     for noise_fac in range(0, 3):
@@ -70,14 +74,18 @@ def temperature_pieceLagmodel_sim():
         [lags.append(model.lags) for model in fftreg.models]
     #
         
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodel_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodel_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodel_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodel_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
+        np.savetxt(os.path.join(home_path,'temperature_fullInput_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
+        np.savetxt(os.path.join(home_path,'temperature_fullInput_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
+        np.savetxt(os.path.join(home_path,'temperature_fullInput_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
+        np.savetxt(os.path.join(home_path,'temperature_fullInput_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
     # print(len(err))
 
 
 def temperature_pieceLagmodelIncomplete_sim():
+    """This fucntion tests the method performance when both redundant and 
+    missing variables occur and redundant variables are highly correlated with 
+    the missing variable"""
+    
     noise_lev = 0.05
 
     for noise_fac in range(0, 3):
@@ -133,13 +141,17 @@ def temperature_pieceLagmodelIncomplete_sim():
         [lags.append(model.lags) for model in fftreg.models]
     #
         print('frq_range: ', frq_range)
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodelIncomplete_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodelIncomplete_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodelIncomplete_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
-        np.savetxt(os.path.join(home_path,'temperature_pieceLagmodelIncomplete_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
+        np.savetxt(os.path.join(home_path,'temperature_incompleteInput_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
+        np.savetxt(os.path.join(home_path,'temperature_incompleteInput_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
+        np.savetxt(os.path.join(home_path,'temperature_incompleteInput_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
+        np.savetxt(os.path.join(home_path,'temperature_incompleteInput_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
 #    print(len(err))
 
 def random_pieceLagmodelIncomplete_sim():
+        """This fucntion tests the method performance when both redundant and 
+    missing variables occur and redundant variables are not correlated with 
+    the missing variable"""
+    
     noise_lev = 0.05
 
     for noise_fac in range(0, 3):
@@ -197,14 +209,17 @@ def random_pieceLagmodelIncomplete_sim():
         [lags.append(model.lags) for model in fftreg.models]
     #
         print('frq_range: ', frq_range)
-        np.savetxt(os.path.join(home_path,'random_pieceLagmodelIncomplete_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
-        np.savetxt(os.path.join(home_path,'random_pieceLagmodelIncomplete_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
-        np.savetxt(os.path.join(home_path,'random_pieceLagmodelIncomplete_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
-        np.savetxt(os.path.join(home_path,'random_pieceLagmodelIncomplete_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
+        np.savetxt(os.path.join(home_path,'random_incompleteInput_sim_coefs(noise_lev_{}).txt'.format(noise_lev)), np.asarray(coefs))
+        np.savetxt(os.path.join(home_path,'random_incompleteInput_sim_mse(noise_lev_{}).txt'.format(noise_lev)), np.asarray(mse))
+        np.savetxt(os.path.join(home_path,'random_incompleteInput_sim_frq_range(noise_lev_{}).txt'.format(noise_lev)), np.asarray(frq_range))
+        np.savetxt(os.path.join(home_path,'random_incompleteInput_sim_lags(noise_lev_{}).txt'.format(noise_lev)), np.asarray(lags))
 #    print(len(err))
 
 ###############################Monthly interest rates######################################################################
 def exchange_rate_real():
+    """This fucntion considers the Australia exchange rate as the dependent 
+    variable and explore its relationship with other countries"""
+    
     file_path = os.path.join(home_path,'exchange_rate.csv')
 
     my_data = pd.read_csv(file_path, delimiter=',', parse_dates=True)
