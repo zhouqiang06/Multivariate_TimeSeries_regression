@@ -14,7 +14,7 @@ from FFTregressor.FFTregressor import FFTregressor
 if platform == "win32":
     home_path = r'C:\Users\qzhou\Downloads\phd\FreqDe'
 else:
-    home_path = r'/home/qzhou/FreqDe' #server lcsrlnst01
+    home_path = r'/home/qzhou/FreqDe' 
 
 def temperature_pieceLagmodel_sim():
     """This function uses all temperature data to investigate the model capability 
