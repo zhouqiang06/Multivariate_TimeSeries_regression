@@ -9,7 +9,7 @@ import os
 
 import logging
 
-from FFTregressor import FFTregressor
+from FFTregressor.FFTregressor import FFTregressor
 
 if platform == "win32":
     home_path = r'C:\Users\qzhou\Downloads\phd\FreqDe'
