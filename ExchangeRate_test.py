@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from datetime import datetime
-
+from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 from sys import platform
@@ -33,6 +33,7 @@ def exchange_rate_real():
 #    freq_x = freq[:x_fft.shape[0] - x_fft.shape[1]]
     print('freq_x: ', freq_x)
     
+    x_axis = np.asarray(range(my_array.shape[0])) + datetime.strptime('1990_01_01','%Y_%m_%d').toordinal()
 
     fftreg = FFTregressor()
 #    logging.debug('build model')
